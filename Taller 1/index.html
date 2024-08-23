@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Taller 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+
+
+  <body>
+
+
+    <div class="container-fluid d-flex flex-wrap">
+
+
+      <form class="w-25 mt-5 mx-3 border border-1 p-5 tarjeta">
+        <p class="text-center">Programa para saber si un número es par o impar</p>
+        <div class="mb-3">
+          <label for="entradaNumero" class="form-label">Introduce un número:</label>
+          <input type="number" class="form-control" id="entradaNumero">
+        </div>
+        <div class="mb-3">
+          <label for="salidaNumero" class="form-label">Resultado:</label>
+          <input type="text" disabled class="form-control" id="salidaNumero" placeholder="">
+        </div>
+
+        <button type="button" class="btn btn-primary" id="boton">Calcular</button>
+      </form>
+
+      <form class="w-25 mt-5 mx-3 border border-1 p-5 tarjeta">
+        <p class="text-center">Programa para saber si una letra es Vocal o Consonante, distinguiendo entre mayúsculas y minúsculas </p>
+        <div class="mb-3">
+          <label for="entradaLetra" class="form-label">Introduce una letra</label>
+          <input type="text" maxlength="1" class="form-control" id="entradaLetra">
+        </div>
+        <div class="mb-3">
+          <label for="salidaLetra" class="form-label">Resultado</label>
+          <input type="text" disabled class="form-control" id="salidaLetra" placeholder="">
+        </div>
+
+        <button type="button" class="btn btn-primary" id="botonLetra">Calcular</button>
+      </form>
+
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./scripts.js"></script>
+  </body>
+</html>
