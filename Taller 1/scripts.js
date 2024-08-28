@@ -50,4 +50,5 @@ document.getElementById("botonLetra").addEventListener("click", function () {
 })
 
 
-// Programa para saber si una letra es vocal o consonante, mayúscula o minúscula
+// Construya un programa que calcule el costo de internación de un cliente, según los datos de la siguiente tabla. 
+// Se sabe que los clientes mayores de 60 años tienen un descuento del 25% y los clientes menores de 25 años, de 15%.
