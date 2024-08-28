@@ -20,20 +20,34 @@ document.getElementById("boton").addEventListener("click", function () {
 // Programa para saber si una letra es vocal o consonante, mayúscula o minúscula
 let entradaLetra = document.getElementById("entradaLetra");
 let salidaLetra = document.getElementById("salidaLetra");
-const vocales = ["a", "e", "i", 'o', 'u'];
+const vocales = ["a", "e", "i", "o", "u"];
+const regex = /[a-zA-Z]/
+
+function isCaps(letra) {
+  return letra === letra.toUpperCase();
+}
+
+function isVowel(letra) {
+  return vocales.includes(letra.toLowerCase());
+}
 
 document.getElementById("botonLetra").addEventListener("click", function () {
+  const letra = entradaLetra.value;
 
-for (let letra of vocales){
-  if(entradaLetra.value == letra){
-    salidaLetra.value = `La letra "${entradaLetra.value}" es una vocal.`;
-    break;
-  } else{
-    salidaLetra.value = `La letra "${entradaLetra.value}" es una consonante.`;
-    break;
+  if (regex.test(letra)) {
+
+    if (isVowel(letra)) {
+      salidaLetra.value = `La letra "${letra}" es una ${isCaps(letra) ? "vocal mayúscula" : "vocal minúscula"}.`
+    } else {
+      salidaLetra.value = `La letra "${letra}" es una ${isCaps(letra) ? "consonante mayúscula" : "consonante minúscula"}.`
+    }
+  } else {
+    salidaLetra.value = `Por favo solo introduce letras.`
   }
-}
-entradaLetra.value = '';
+
+  entradaLetra.value = ""
 
 })
 
+
+// Programa para saber si una letra es vocal o consonante, mayúscula o minúscula
