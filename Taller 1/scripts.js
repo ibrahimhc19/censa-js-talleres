@@ -52,3 +52,17 @@ document.getElementById("botonLetra").addEventListener("click", function () {
 
 // Construya un programa que calcule el costo de internación de un cliente, según los datos de la siguiente tabla. 
 // Se sabe que los clientes mayores de 60 años tienen un descuento del 25% y los clientes menores de 25 años, de 15%.
+let tratamiento = document.getElementById('seleccion');
+let precio = document.getElementById('cotizacion')
+let botonCotizar = document.getElementById('cotizar')
+
+let planes = new Map();
+planes.set("platino", "28.000")
+planes.set("oro", "25.000")
+planes.set("plata", "19.500")
+planes.set("bronce", "11.500")
+
+
+botonCotizar.addEventListener('click', function boton(){
+  console.log(planes.get(tratamiento.value))
+})
