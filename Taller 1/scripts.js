@@ -42,7 +42,7 @@ document.getElementById("botonLetra").addEventListener("click", function () {
       salidaLetra.value = `La letra "${letra}" es una ${isCaps(letra) ? "consonante mayúscula" : "consonante minúscula"}.`
     }
   } else {
-    salidaLetra.value = `Por favo solo introduce letras.`
+    salidaLetra.value = `Por favor solo introduce letras.`
   }
 
   entradaLetra.value = ""
