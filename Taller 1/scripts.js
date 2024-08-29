@@ -55,14 +55,30 @@ document.getElementById("botonLetra").addEventListener("click", function () {
 let tratamiento = document.getElementById('seleccion');
 let precio = document.getElementById('cotizacion')
 let botonCotizar = document.getElementById('cotizar')
+let entradaEdad = document.getElementById("edad")
+let planes = {
+  "platino": 28800,
+  "oro": 25000,
+  "plata": 19500,
+  "bronce": 11500
+}
 
-let planes = new Map();
-planes.set("platino", "28.000")
-planes.set("oro", "25.000")
-planes.set("plata", "19.500")
-planes.set("bronce", "11.500")
+
+for (let [plan, precio] of Object.entries(planes)) {
+
+  let opcion = document.createElement('option')
+  opcion.value = plan
+  opcion.text = `Plan ${plan.charAt(0).toLocaleUpperCase()}${plan.slice(1)} - $${precio}`
+  tratamiento.append(opcion)
+
+}
 
 
-botonCotizar.addEventListener('click', function boton(){
-  console.log(planes.get(tratamiento.value))
+botonCotizar.addEventListener('click', function boton() {
+  let seleccion = tratamiento.value;
+  let edad = entradaEdad.value;
+
+  precio.value = `El plan ${seleccion} tiene un valor de $${planes[seleccion]}`
+
+
 })
