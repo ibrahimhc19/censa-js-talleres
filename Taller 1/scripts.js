@@ -53,9 +53,9 @@ document.getElementById("botonLetra").addEventListener("click", function () {
 // Construya un programa que calcule el costo de internación de un cliente, según los datos de la siguiente tabla. 
 // Se sabe que los clientes mayores de 60 años tienen un descuento del 25% y los clientes menores de 25 años, de 15%.
 let tratamiento = document.getElementById('seleccion');
-let precio = document.getElementById('cotizacion')
-let botonCotizar = document.getElementById('cotizar')
-let entradaEdad = document.getElementById("edad")
+let precio = document.getElementById('cotizacion');
+let botonCotizar = document.getElementById('cotizar');
+let entradaEdad = document.getElementById("edad");
 let planes = {
   "platino": 28800,
   "oro": 25000,
@@ -65,20 +65,41 @@ let planes = {
 
 
 for (let [plan, precio] of Object.entries(planes)) {
-
-  let opcion = document.createElement('option')
-  opcion.value = plan
-  opcion.text = `Plan ${plan.charAt(0).toLocaleUpperCase()}${plan.slice(1)} - $${precio}`
-  tratamiento.append(opcion)
-
+  let opcion = document.createElement('option');
+  opcion.value = plan;
+  opcion.text = `Plan ${plan.charAt(0).toLocaleUpperCase()}${plan.slice(1)} - $${precio}`;
+  tratamiento.append(opcion);
 }
 
 
 botonCotizar.addEventListener('click', function boton() {
-  let seleccion = tratamiento.value;
-  let edad = entradaEdad.value;
 
-  precio.value = `El plan ${seleccion} tiene un valor de $${planes[seleccion]}`
+  if (tratamiento.value != '') {
+    let plan = tratamiento.value;
+    let edad = entradaEdad.value;
+    let seleccion = planes[plan]
+
+        if (edad >= 60) {
+
+          let descuento = 0.75;
+          precio.value = `El plan ${plan} tiene un valor de ${seleccion} y con un descuento de ${(1-descuento)*100}% queda en $${(seleccion * descuento)}`;
+
+        } else if (edad <= 25) {
+
+          descuento = 0.85;
+          precio.value = `El plan ${plan} tiene un valor de $${(seleccion * descuento)}`;
+
+        } else {
+
+          precio.value = `El plan ${plan} tiene un valor de $${seleccion}`;
+
+        }
+
+  } else {
+
+    precio.value = "Debe seleccionar una opción de tratamiento.";
+
+  }
 
 
 })
