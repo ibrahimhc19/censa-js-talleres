@@ -1,3 +1,16 @@
+//Crear el aviso
+let aviso = document.createElement("div");
+aviso.classList.add("alert","alert-warning","alert-dismissible","fade", "show");
+aviso.role = "alert";
+
+//Crear el boton
+let botonAviso = document.createElement("button");
+botonAviso.classList.add("btn-close");
+botonAviso.type = "button";
+botonAviso.setAttribute("data-bs-dismiss", "alert");
+botonAviso.setAttribute("aria-label", "Close");
+
+
 
 
 
@@ -7,13 +20,20 @@ let salida = document.getElementById("salidaNumero");
 
 document.getElementById("boton").addEventListener("click", function () {
   if (entrada.value % 2 === 0) {
-    salida.value = `El numero "${entrada.value}" es par.`;
+      salida.value = `El numero "${entrada.value}" es par.`;
+    // aviso.innerText = `El numero "${entrada.value}" es par.`;
+    // aviso.appendChild(botonAviso);
+    // document.getElementById("salidaPar").appendChild(aviso);
+
   } else {
-    salida.value = `El número "${entrada.value}" es impar.`;
+      salida.value = `El numero "${entrada.value}" es impar.`;
+    // aviso.innerText = `El número "${entrada.value}" es impar.`;
+    // aviso.appendChild(botonAviso);
+    // document.getElementById("salidaPar").appendChild(aviso);
+
   }
   entrada.value = ''
 })
-
 
 
 
@@ -21,7 +41,7 @@ document.getElementById("boton").addEventListener("click", function () {
 let entradaLetra = document.getElementById("entradaLetra");
 let salidaLetra = document.getElementById("salidaLetra");
 const vocales = ["a", "e", "i", "o", "u"];
-const regex = /[a-zA-Z]/
+const regex = /[a-zA-Z]/;
 
 function isCaps(letra) {
   return letra === letra.toUpperCase();
@@ -37,15 +57,15 @@ document.getElementById("botonLetra").addEventListener("click", function () {
   if (regex.test(letra)) {
 
     if (isVowel(letra)) {
-      salidaLetra.value = `La letra "${letra}" es una ${isCaps(letra) ? "vocal mayúscula" : "vocal minúscula"}.`
+      salidaLetra.value = `La letra "${letra}" es una ${isCaps(letra) ? "vocal mayúscula" : "vocal minúscula"}.`;
     } else {
-      salidaLetra.value = `La letra "${letra}" es una ${isCaps(letra) ? "consonante mayúscula" : "consonante minúscula"}.`
+      salidaLetra.value = `La letra "${letra}" es una ${isCaps(letra) ? "consonante mayúscula" : "consonante minúscula"}.`;
     }
   } else {
-    salidaLetra.value = `Por favor solo introduce letras.`
+    salidaLetra.value = `Por favor solo introduce letras.`;
   }
 
-  entradaLetra.value = ""
+  entradaLetra.value = "";
 
 })
 
@@ -77,7 +97,7 @@ botonCotizar.addEventListener('click', function boton() {
   if (tratamiento.value != '') {
     let plan = tratamiento.value;
     let edad = entradaEdad.value;
-    let seleccion = planes[plan]
+    let seleccion = planes[plan];
 
         if (edad >= 60) {
 
